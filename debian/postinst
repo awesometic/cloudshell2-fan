@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+update-rc.d cloudshell2-fan defaults

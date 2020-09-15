@@ -1,0 +1,4 @@
+#!/bin/sh
+
+update-rc.d cloudshell2-fan disable
+update-rc.d -f cloudshell2-fan remove

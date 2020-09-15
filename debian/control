@@ -1,0 +1,12 @@
+Source: cloudshell2-fan
+Priority: extra
+Section: misc
+Maintainer: Kyle Lee <cont2dev@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+
+Package: cloudshell2-fan
+Architecture: armhf
+Depends: ${shlibs:Depends}, ${misc:Depends}, i2c-tools
+Description: cloudshell2-fan package
+  This package is to enable ODROID CloudShell2 fan on/off service
