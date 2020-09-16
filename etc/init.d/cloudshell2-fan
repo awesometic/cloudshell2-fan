@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides:		cloudshell2-fan
 # Required-Start:	$remote_fs $syslog
@@ -9,20 +9,29 @@
 # Description:
 ### END INIT INFO
 
+TARGET_KERNEL_VER=5
+KERNEL_VER_MAJOR=$(uname -r | cut -c1-1)
+
+if [ $KERNEL_VER_MAJOR -ge $TARGET_KERNEL_VER ]; then
+	I2C_NODE=0
+else
+	I2C_NODE=1
+fi
+
 case "$1" in
   start|status)
 	# No-op
-	i2cset -y 1 0x60 0x05 0x00
+	i2cset -y $I2C_NODE 0x60 0x05 0x00
 	;;
   restart|reload|force-reload)
-	i2cset -y 1 0x60 0x05 0x00
+	i2cset -y $I2C_NODE 0x60 0x05 0x00
 	exit 3
 	;;
   stop)
-	i2cset -y 1 0x60 0x05 0x05
+	i2cset -y $I2C_NODE 0x60 0x05 0x05
 	;;
   *)
-	i2cset -y 1 0x60 0x05 0x05
+	i2cset -y $I2C_NODE 0x60 0x05 0x05
 	exit 3
 	;;
 esac
