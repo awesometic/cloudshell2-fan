@@ -1,3 +1,9 @@
+cloudshell2-fan (1.1) stable; urgency=medium
+
+  * Use /dev/i2c-0 node when the device's kernel version is 5 or above
+
+ -- Deokgyu Yang <secugyu@gmail.com>  Wed, 16 Sep 2020 18:06:42 +0900
+
 cloudshell2-fan (1.0-0~2~ubuntu20.04.1) focal; urgency=low
 
   * Auto build.
